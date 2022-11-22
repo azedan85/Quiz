@@ -16,11 +16,39 @@ class QuizzApp extends StatefulWidget {
 class _QuizzAppState extends State<QuizzApp> {
   int _idx = 0;
 
-  final List<String> _questions = [
-    'What\'s your name ?',
-    'How old are you ?',
-    'What\'s your faveort color ?',
-    'What\'s your faveort anaimal ?'
+  final List _questions = [
+    {
+      'quest': 'What\'s your name ?',
+      'answar': [
+        {'a': 'Ahmed', 'd': 10},
+        {'a': 'Mohamed', 'd': 0},
+        {'a': 'Ali', 'd': 0},
+      ]
+    },
+    {
+      'quest': 'How old are you ?',
+      'answar': [
+        {'a': '40', 'd': 10},
+        {'a': '60', 'd': 0},
+        {'a': '30', 'd': 0},
+      ]
+    },
+    {
+      'quest': 'What\'s your faveort color ?',
+      'answar': [
+        {'a': 'Red', 'd': 10},
+        {'a': 'Green', 'd': 0},
+        {'a': 'Pink', 'd': 0},
+      ]
+    },
+    {
+      'quest': 'What\'s your faveort anaimal ?',
+      'answar': [
+        {'a': 'Lion', 'd': 10},
+        {'a': 'Elephant', 'd': 0},
+        {'a': 'Monky', 'd': 0},
+      ]
+    },
   ];
 
   final List _answard = [
