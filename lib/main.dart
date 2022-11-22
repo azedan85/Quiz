@@ -14,6 +14,7 @@ class QuizzApp extends StatefulWidget {
 }
 
 class _QuizzAppState extends State<QuizzApp> {
+  int _deg = 0;
   int _idx = 0;
 
   final List _questions = [
@@ -51,21 +52,16 @@ class _QuizzAppState extends State<QuizzApp> {
     },
   ];
 
-  final List _answard = [
-    ['Ahmed', 'Mohamed', 'Ali'],
-    ['40', '30', '60'],
-    ['Red', 'Green', 'Pink'],
-    ['Lion', 'Elephant', 'Monky']
-  ];
-
-  void questionAnswar() {
+  void questionAnswar(int cont) {
     if ((_idx + 1) < _questions.length) {
       setState(() {
         _idx += 1;
+        _deg += cont;
       });
     } else {
       setState(() {
         _idx = 0;
+        _deg = 0;
       });
     }
     // print('clicked $_idx');
@@ -84,10 +80,10 @@ class _QuizzAppState extends State<QuizzApp> {
           margin: const EdgeInsets.all(15.0),
           child: Column(
             children: [
-              Questions(_questions[_idx]),
-              Answar(questionAnswar, _answard[_idx][0]),
-              Answar(questionAnswar, _answard[_idx][1]),
-              Answar(questionAnswar, _answard[_idx][2]),
+              Questions(_questions[_idx]['quest']),
+              ...(_questions[_idx]['answar'] as List).map((ans) {
+                return Answar(() => questionAnswar(ans['d']), ans['a']);
+              }).toList(),
             ],
           ),
         ),
