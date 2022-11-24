@@ -82,7 +82,8 @@ class _QuizzAppState extends State<QuizzApp> {
             children: [
               Questions(_questions[_idx]['quest']),
               ...(_questions[_idx]['answar'] as List).map((ans) {
-                return Answar(() => questionAnswar(ans['d']), ans['a']);
+                return Answar(
+                    () => questionAnswar(ans['d']), ans['a'].toString());
               }).toList(),
             ],
           ),
